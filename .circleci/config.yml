@@ -106,11 +106,11 @@ workflows:
               requires: 
                 - build          
          - aws-eks/create-cluster:
-              cluster-name: aamirscap2
+              cluster-name: aamirscap
               requires: 
                 - Build-Docker-image-and-push
          - create-deployment:
-              cluster-name: aamirscap2
+              cluster-name: aamirscap
               requires:
                 - build
                 - Build-Docker-image-and-push
