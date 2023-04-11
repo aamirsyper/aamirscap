@@ -45,12 +45,12 @@ jobs:
             . dockerproj5/bin/activate
             make lint 
 
-    # # run test!
-    #   - run:
-    #       name: run test
-    #       command: |
-    #         . dockerproj5/bin/activate
-    #         py.test 
+    # run test!
+      - run:
+          name: run test
+          command: |
+            . dockerproj5/bin/activate
+            py.test 
 
   Build-Docker-image-and-push:
     machine: true
