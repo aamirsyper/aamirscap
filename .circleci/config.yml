@@ -67,7 +67,7 @@ jobs:
       - run:
           name: Authenticate Docker Hub Login and also push the docker image to docker hub repository
           command: |
-            docker login -u="${DOCKER_USER}" -p="${DOCKER_PASS}"
+            docker login -u="${DOCKER_LOGIN}" -p="${DOCKER_PASS}"
             echo 'Welcome to DockerHub!!!'
 
             TAG=aamirscap
