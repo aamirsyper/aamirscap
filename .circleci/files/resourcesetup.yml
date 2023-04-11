@@ -1,0 +1,33 @@
+# This file is inspired from Amazon AWS user guide which uses Load Balancing on Kubernetes to deply application 
+# Rolling DEployment ise used which updates the previous version of application when running.
+# https://docs.aws.amazon.com/eks/latest/userguide/network-load-balancing.html
+# The load balancer used here is Network Load balancing so that application could be available and accessible by anywhere.
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aamirscap
+  namespace: default
+  labels:
+    app: aamirscap
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: aamirscap
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: aamirscap
+    spec:
+      containers:
+        - image: aamirsyper/aamirscap
+          imagePullPolicy: Always
+          name: capstone
+          ports:
+            - containerPort: 80
