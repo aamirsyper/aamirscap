@@ -8,7 +8,7 @@ LOG.setLevel(logging.INFO)
 
 LOG.info(f"Entered the Process ")
 
-@app.route('/')
+@app.route("/")
 
 def home():
     LOG.info(f"Entered the Home Function")
@@ -16,4 +16,4 @@ def home():
     return html.format(format)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=81)
+    app.run(host='0.0.0.0', port=80)
