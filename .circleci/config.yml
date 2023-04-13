@@ -99,20 +99,8 @@ jobs:
           resource-file-path: ".circleci/files/networksetup.yml"
 
 workflows:
-    default:
-      jobs:
-         - build
-         - Build-Docker-image-and-push:
-              requires: 
-                - build          
-         - aws-eks/create-cluster:
-              cluster-name: aamirscap
-              requires: 
-                - Build-Docker-image-and-push
-         - create-deployment:
-              cluster-name: aamirscap
-              requires:
-                - build
-                - Build-Docker-image-and-push
-                - aws-eks/create-cluster           
+  default:
+    jobs:   
+       - aws-eks/delete-cluster:
+            cluster-name: aamirscap            
        
