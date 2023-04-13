@@ -8,7 +8,7 @@ LOG.setLevel(logging.INFO)
 
 LOG.info(f"Entered the Process ")
 
-@app.route('/')
+@app.route("/");
 def home():
     LOG.info(f"Entered the Home Function ")
     html = f"<h3>Hello World, my name is Aamir Ansari</h3>"
